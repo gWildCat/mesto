@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./vendor/fonts/fonts.css" />
     <title>Mesto</title>
   </head>
-  <body class="body">
+  <body class="page">
     <header class="header">
       <img
         class="header__logo"
@@ -25,18 +25,13 @@
         />
         <div class="profile__info">
           <h2 class="profile__name">Жак-Ив Кусто</h2>
-          <img
+          <button
             class="profile__edit-button"
-            src="./images/profile-edit-button.svg"
-            alt="Редактировать профиль"
-          />
+            title="Редактировать профиль"
+          ></button>
           <p class="profile__subname">Исследователь океана</p>
         </div>
-        <img
-          class="profile__add-button"
-          src="./images/profile-add-button.svg"
-          alt="Добавить карточку"
-        />
+        <button class="profile__add-button" title="Добавить карточку"></button>
       </section>
       <section class="elements">
         <div class="element">
@@ -48,10 +43,7 @@
             />
             <div class="element__caption">
               <figcaption class="element__title">Карачаевск</figcaption>
-              <img
-                class="element__like-button"
-                src="./images/elements-like.svg"
-              />
+              <button class="element__like-button" title="Нравится"></button>
             </div>
           </figure>
         </div>
@@ -64,10 +56,7 @@
             />
             <div class="element__caption">
               <figcaption class="element__title">Гора Эльбрус</figcaption>
-              <img
-                class="element__like-button"
-                src="./images/elements-like.svg"
-              />
+              <button class="element__like-button" title="Нравится"></button>
             </div>
           </figure>
         </div>
@@ -80,10 +69,7 @@
             />
             <div class="element__caption">
               <figcaption class="element__title">Домбай</figcaption>
-              <img
-                class="element__like-button"
-                src="./images/elements-like.svg"
-              />
+              <button class="element__like-button" title="Нравится"></button>
             </div>
           </figure>
         </div>
@@ -96,10 +82,7 @@
             />
             <div class="element__caption">
               <figcaption class="element__title">Гора Эльбрус</figcaption>
-              <img
-                class="element__like-button"
-                src="./images/elements-like.svg"
-              />
+              <button class="element__like-button" title="Нравится"></button>
             </div>
           </figure>
         </div>
@@ -112,10 +95,7 @@
             />
             <div class="element__caption">
               <figcaption class="element__title">Домбай</figcaption>
-              <img
-                class="element__like-button"
-                src="./images/elements-like.svg"
-              />
+              <button class="element__like-button" title="Нравится"></button>
             </div>
           </figure>
         </div>
@@ -128,17 +108,37 @@
             />
             <div class="element__caption">
               <figcaption class="element__title">Карачаево-Черкесия</figcaption>
-              <img
-                class="element__like-button"
-                src="./images/elements-like.svg"
-              />
+              <button class="element__like-button" title="Нравится"></button>
             </div>
           </figure>
         </div>
       </section>
-      <footer class="footer">
-        <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
-      </footer>
     </main>
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+    </footer>
+    <div class="popup">
+      <div class="popup__window">
+        <form class="form">
+          <h3 class="form__header">Редактировать профиль</h3>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            class="form__input"
+            placeholder="Жак-Ив Кусто"
+          />
+          <input
+            id="subname"
+            name="subname"
+            type="text"
+            class="form__input"
+            placeholder="Исследователь океана"
+          />
+          <button class="form__btn-save" title="Сохранить">Сохранить</button>
+        </form>
+        <button class="form__btn-close" title="Закрыть"></button>
+      </div>
+    </div>
   </body>
 </html>
