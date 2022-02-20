@@ -22,12 +22,14 @@
           alt="Аватар пользователя"
         />
         <div>
-          <h2 class="profile__name">Жак-Ив Кусто</h2>
-          <button
-            class="profile__edit-button"
-            title="Редактировать профиль"
-          ></button>
-          <p class="profile__subname">Исследователь океана</p>
+          <div class="profile__container">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button
+              class="profile__edit-button"
+              title="Редактировать профиль"
+            ></button>
+          </div>
+          <p class="profile__job">Исследователь океана</p>
         </div>
         <button class="profile__add-button" title="Добавить карточку"></button>
       </section>
@@ -117,8 +119,8 @@
     </footer>
     <div class="popup">
       <div class="popup__container">
-        <form>
-          <h3 class="form__header">Редактировать профиль</h3>
+        <form class="form">
+          <h2 class="form__header">Редактировать профиль</h2>
           <input
             id="name"
             name="name"
@@ -127,17 +129,17 @@
             placeholder="Имя"
           />
           <input
-            id="subname"
-            name="subname"
+            id="job"
+            name="job"
             type="text"
             class="form__input"
-            placeholder="Звание"
+            placeholder="Должность"
           />
           <button class="form__save-button" title="Сохранить">Сохранить</button>
         </form>
         <button class="form__close-button" title="Закрыть"></button>
       </div>
     </div>
-    <script src="./scripts/script.js"></script>
+    <script src="./pages/index.js"></script>
   </body>
 </html>

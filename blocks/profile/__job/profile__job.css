@@ -1,20 +1,24 @@
-.profile__subname {
+.profile__job {
   color: #fff;
   font-size: 18px;
   font-weight: 400;
   line-height: 1.21;
   margin: 0;
+  max-width: 336px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 768px) {
-  .profile__subname {
+  .profile__job {
     font-size: 14px;
     margin-bottom: 9px;
   }
 }
 
 @media screen and (max-width: 619px) {
-  .profile__subname {
+  .profile__job {
     text-align: center;
   }
 }
