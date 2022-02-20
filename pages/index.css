@@ -6,8 +6,6 @@
 
 @import url(../blocks/element/__caption/element__caption.css);
 
-@import url(../blocks/element/__figure/element__figure.css);
-
 @import url(../blocks/element/__image/element__image.css);
 
 @import url(../blocks/element/__like-button/element__like-button.css);
@@ -22,8 +20,6 @@
 
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 
-@import url(../blocks/form/__close-button/form__close-button.css);
-
 @import url(../blocks/form/__header/form__header.css);
 
 @import url(../blocks/form/__input/form__input.css);
@@ -37,6 +33,8 @@
 @import url(../blocks/page/page.css);
 
 @import url(../blocks/popup/popup.css);
+
+@import url(../blocks/popup/__close-button/popup__close-button.css);
 
 @import url(../blocks/popup/__container/popup__container.css);
 
