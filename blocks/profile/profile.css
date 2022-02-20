@@ -1,0 +1,22 @@
+.profile {
+  display: grid;
+  grid-template-columns: 120px minmax(230px, 1fr) 150px;
+  align-items: center;
+  padding: 40px 0 51px 0;
+  gap: 30px;
+}
+
+@media screen and (max-width: 918px) {
+  .profile {
+    padding: 40px 19px 51px 19px;
+  }
+}
+
+@media screen and (max-width: 619px) {
+  .profile {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 26px;
+    padding: 42px 19px 36px 19px;
+  }
+}

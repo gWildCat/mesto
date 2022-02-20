@@ -3,9 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./vendor/normalize.css" />
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="./vendor/fonts/fonts.css" />
+    <link rel="stylesheet" href="./pages/index.css" />
     <title>Mesto</title>
   </head>
   <body class="page">
@@ -23,7 +21,7 @@
           src="./images/profile-avatar.jpg"
           alt="Аватар пользователя"
         />
-        <div class="profile__info">
+        <div>
           <h2 class="profile__name">Жак-Ив Кусто</h2>
           <button
             class="profile__edit-button"
@@ -118,27 +116,28 @@
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
     <div class="popup">
-      <div class="popup__window">
-        <form class="form">
+      <div class="popup__container">
+        <form>
           <h3 class="form__header">Редактировать профиль</h3>
           <input
             id="name"
             name="name"
             type="text"
             class="form__input"
-            placeholder="Жак-Ив Кусто"
+            placeholder="Имя"
           />
           <input
             id="subname"
             name="subname"
             type="text"
             class="form__input"
-            placeholder="Исследователь океана"
+            placeholder="Звание"
           />
-          <button class="form__btn-save" title="Сохранить">Сохранить</button>
+          <button class="form__save-button" title="Сохранить">Сохранить</button>
         </form>
-        <button class="form__btn-close" title="Закрыть"></button>
+        <button class="form__close-button" title="Закрыть"></button>
       </div>
     </div>
+    <script src="./scripts/script.js"></script>
   </body>
 </html>
