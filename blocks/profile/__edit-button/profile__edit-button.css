@@ -1,7 +1,6 @@
 .profile__edit-button {
   appearance: none;
   background: center no-repeat url(../../../images/profile-edit-btn.svg);
-  display: inline;
   width: 24px;
   height: 24px;
   border: 1px solid #fff;

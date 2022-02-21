@@ -1,9 +1,9 @@
 .footer {
-  padding: 0 0 60px 0;
+  padding: 0 0 55px 0;
 }
 
 @media screen and (max-width: 918px) {
   .footer {
-    padding: 0 0 18px 19px;
+    padding: 0 0 32px 19px;
   }
 }

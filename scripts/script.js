@@ -11,7 +11,6 @@ function openPopup() {
   popup.classList.add('popup_opened');
   inputName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
-  inputName.focus();
 }
 
 function closePopup() {

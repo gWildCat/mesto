@@ -27,79 +27,116 @@
             <button
               class="profile__edit-button"
               title="Редактировать профиль"
+              type="button"
+              aria-label="Открыть форму редактирования профиля"
             ></button>
           </div>
           <p class="profile__job">Исследователь океана</p>
         </div>
-        <button class="profile__add-button" title="Добавить карточку"></button>
+        <button
+          class="profile__add-button"
+          title="Добавить карточку"
+          type="button"
+          aria-label="Открыть форму добавления карточки"
+        ></button>
       </section>
       <section class="elements">
-        <div class="element">
+        <article class="element">
           <img
             class="element__image"
             src="./images/elements-karachaevsk.jpg"
             alt="Фотография Карачаевска"
           />
           <div class="element__caption">
-            <p class="element__title">Карачаевск</p>
-            <button class="element__like-button" title="Нравится"></button>
+            <h2 class="element__title">Карачаевск</h2>
+            <button
+              class="element__like-button"
+              title="Нравится"
+              type="button"
+              aria-label="Поставить лайк"
+            ></button>
           </div>
-        </div>
-        <div class="element">
+        </article>
+        <article class="element">
           <img
             class="element__image"
             src="./images/elements-gora-elbrus.jpg"
             alt="Фотография горы Эльбрус"
           />
           <div class="element__caption">
-            <p class="element__title">Гора Эльбрус</p>
-            <button class="element__like-button" title="Нравится"></button>
+            <h2 class="element__title">Гора Эльбрус</h2>
+            <button
+              class="element__like-button"
+              title="Нравится"
+              type="button"
+              aria-label="Поставить лайк"
+            ></button>
           </div>
-        </div>
-        <div class="element">
+        </article>
+        <article class="element">
           <img
             class="element__image"
             src="./images/elements-dombay.jpg"
             alt="Фотография горнолыжного курорта Домбай"
           />
           <div class="element__caption">
-            <p class="element__title">Домбай</p>
-            <button class="element__like-button" title="Нравится"></button>
+            <h2 class="element__title">Домбай</h2>
+            <button
+              class="element__like-button"
+              title="Нравится"
+              type="button"
+              aria-label="Поставить лайк"
+            ></button>
           </div>
-        </div>
-        <div class="element">
+        </article>
+        <article class="element">
           <img
             class="element__image"
             src="./images/elements-gora-elbrus.jpg"
             alt="Фотография горы Эльбрус"
           />
           <div class="element__caption">
-            <p class="element__title">Гора Эльбрус</p>
-            <button class="element__like-button" title="Нравится"></button>
+            <h2 class="element__title">Гора Эльбрус</h2>
+            <button
+              class="element__like-button"
+              title="Нравится"
+              type="button"
+              aria-label="Поставить лайк"
+            ></button>
           </div>
-        </div>
-        <div class="element">
+        </article>
+        <article class="element">
           <img
             class="element__image"
             src="./images/elements-dombay.jpg"
             alt="Фотография горнолыжного курорта Домбай"
           />
           <div class="element__caption">
-            <p class="element__title">Домбай</p>
-            <button class="element__like-button" title="Нравится"></button>
+            <h2 class="element__title">Домбай</h2>
+            <button
+              class="element__like-button"
+              title="Нравится"
+              type="button"
+              aria-label="Поставить лайк"
+            ></button>
           </div>
-        </div>
-        <div class="element">
+        </article>
+        <article class="element">
           <img
             class="element__image"
             src="./images/elements-karachaevsk.jpg"
             alt="Фотография Карачаево-Черкесии"
           />
           <div class="element__caption">
-            <p class="element__title">Карачаево-Черкесия</p>
-            <button class="element__like-button" title="Нравится"></button>
+            <h2 class="element__title">Карачаево-Черкесия</h2>
+            <button
+              class="element__like-button"
+              title="Нравится"
+              type="button"
+              aria-label="Поставить лайк"
+            ></button>
           </div>
-        </div>
+        </article>
       </section>
     </main>
     <footer class="footer">
@@ -107,7 +144,7 @@
     </footer>
     <div class="popup">
       <div class="popup__container">
-        <form class="form">
+        <form class="form" name="profileForm">
           <h2 class="form__header">Редактировать профиль</h2>
           <input
             id="name"
@@ -115,6 +152,7 @@
             type="text"
             class="form__input"
             placeholder="Имя"
+            aria-label="Имя"
           />
           <input
             id="job"
@@ -122,12 +160,22 @@
             type="text"
             class="form__input"
             placeholder="Должность"
+            aria-label="Должность"
           />
-          <button class="form__save-button" title="Сохранить">Сохранить</button>
+          <button
+          class="form__save-button"
+          title="Сохранить"
+          type="submit"
+        >Сохранить</button>
         </form>
-        <button class="popup__close-button" title="Закрыть"></button>
+        <button
+          class="popup__close-button"
+          title="Закрыть"
+          type="button"
+          aria-label="Закрыть форму"
+        ></button>
       </div>
     </div>
-    <script src="./pages/index.js"></script>
+    <script src="./scripts/script.js"></script>
   </body>
 </html>
