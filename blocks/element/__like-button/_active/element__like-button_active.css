@@ -1,3 +1,4 @@
 .element__like-button_active {
-  background: center no-repeat url(../../../images/elements-like-btn-active.svg);
+  background: center no-repeat
+    url(../../../../images/elements-like-btn-active.svg);
 }

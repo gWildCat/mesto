@@ -40,111 +40,14 @@
           aria-label="Открыть форму добавления карточки"
         ></button>
       </section>
-      <section class="elements">
-        <article class="element">
-          <img
-            class="element__image"
-            src="./images/elements-karachaevsk.jpg"
-            alt="Фотография Карачаевска"
-          />
-          <div class="element__caption">
-            <h2 class="element__title">Карачаевск</h2>
-            <button
-              class="element__like-button"
-              title="Нравится"
-              type="button"
-              aria-label="Поставить лайк"
-            ></button>
-          </div>
-        </article>
-        <article class="element">
-          <img
-            class="element__image"
-            src="./images/elements-gora-elbrus.jpg"
-            alt="Фотография горы Эльбрус"
-          />
-          <div class="element__caption">
-            <h2 class="element__title">Гора Эльбрус</h2>
-            <button
-              class="element__like-button"
-              title="Нравится"
-              type="button"
-              aria-label="Поставить лайк"
-            ></button>
-          </div>
-        </article>
-        <article class="element">
-          <img
-            class="element__image"
-            src="./images/elements-dombay.jpg"
-            alt="Фотография горнолыжного курорта Домбай"
-          />
-          <div class="element__caption">
-            <h2 class="element__title">Домбай</h2>
-            <button
-              class="element__like-button"
-              title="Нравится"
-              type="button"
-              aria-label="Поставить лайк"
-            ></button>
-          </div>
-        </article>
-        <article class="element">
-          <img
-            class="element__image"
-            src="./images/elements-gora-elbrus.jpg"
-            alt="Фотография горы Эльбрус"
-          />
-          <div class="element__caption">
-            <h2 class="element__title">Гора Эльбрус</h2>
-            <button
-              class="element__like-button"
-              title="Нравится"
-              type="button"
-              aria-label="Поставить лайк"
-            ></button>
-          </div>
-        </article>
-        <article class="element">
-          <img
-            class="element__image"
-            src="./images/elements-dombay.jpg"
-            alt="Фотография горнолыжного курорта Домбай"
-          />
-          <div class="element__caption">
-            <h2 class="element__title">Домбай</h2>
-            <button
-              class="element__like-button"
-              title="Нравится"
-              type="button"
-              aria-label="Поставить лайк"
-            ></button>
-          </div>
-        </article>
-        <article class="element">
-          <img
-            class="element__image"
-            src="./images/elements-karachaevsk.jpg"
-            alt="Фотография Карачаево-Черкесии"
-          />
-          <div class="element__caption">
-            <h2 class="element__title">Карачаево-Черкесия</h2>
-            <button
-              class="element__like-button"
-              title="Нравится"
-              type="button"
-              aria-label="Поставить лайк"
-            ></button>
-          </div>
-        </article>
-      </section>
+      <section class="elements"></section>
     </main>
     <footer class="footer">
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
-    <div class="popup">
+    <div class="popup popup_light" id="edit-profile">
       <div class="popup__container">
-        <form class="form" name="profileForm">
+        <form class="form" name="profile-form" id="profile-form">
           <h2 class="form__header">Редактировать профиль</h2>
           <input
             id="name"
@@ -163,10 +66,11 @@
             aria-label="Должность"
           />
           <button
-          class="form__save-button"
-          title="Сохранить"
-          type="submit"
-        >Сохранить</button>
+            class="form__save-button"
+            title="Сохранить"
+            type="submit">
+            Сохранить
+          </button>
         </form>
         <button
           class="popup__close-button"
@@ -176,6 +80,75 @@
         ></button>
       </div>
     </div>
+    <div class="popup popup_light" id="new-card">
+      <div class="popup__container">
+        <form class="form" name="new-card-form" id="new-card-form">
+          <h2 class="form__header">Новое место</h2>
+          <input
+            id="title"
+            name="title"
+            type="text"
+            class="form__input"
+            placeholder="Название"
+            aria-label="Название"
+          />
+          <input
+            id="link"
+            name="link"
+            type="text"
+            class="form__input"
+            placeholder="Ссылка на картинку"
+            aria-label="Ссылка на картинку"
+          />
+          <button
+            class="form__save-button"
+            title="Создать"
+            type="submit">
+            Создать
+          </button>
+        </form>
+        <button
+          class="popup__close-button"
+          title="Закрыть"
+          type="button"
+          aria-label="Закрыть форму"
+        ></button>
+      </div>
+    </div>
+    <div class="popup popup_dark" id="view-image">
+      <div class="popup__image-container">
+        <figure class="popup__figure">
+          <img class="popup__image" src="#" />
+          <figcaption class="popup__image-caption">Наименование</figcaption>
+        </figure>
+        <button
+          class="popup__close-button"
+          title="Закрыть"
+          type="button"
+          aria-label="Закрыть просмотр"
+        ></button>
+      </div>
+    </div>
+    <template id="card-template">
+      <article class="element">
+        <img class="element__image" />
+        <div class="element__caption">
+          <h2 class="element__title"></h2>
+          <button
+            class="element__like-button"
+            title="Нравится"
+            type="button"
+            aria-label="Поставить лайк"
+          ></button>
+        </div>
+        <button
+          class="element__delete-button"
+          title="Удалить"
+          type="button"
+          aria-label="Удалить карточку"
+        ></button>
+      </article>
+    </template>
     <script src="./scripts/script.js"></script>
   </body>
 </html>
