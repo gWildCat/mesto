@@ -54,8 +54,7 @@ function addCard(evt) {
   evt.preventDefault();
   const cardData = { name: inputTitle.value, link: inputLink.value };
   renderCard(cardData);
-  inputTitle.value = '';
-  inputLink.value = '';
+  addCardForm.reset();
   closePopup(evt);
 }
 
@@ -72,7 +71,7 @@ function viewImg(link, alt, name) {
   popupImg.src = link;
   popupImg.alt = alt;
   popupImgCaption.textContent = name;
-  popupViewImg.classList.add('popup_opened');
+  openPopup(popupViewImg);
 }
 
 //Создание карточки
@@ -82,7 +81,7 @@ function createCard(cardData) {
   const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
   const cardImg = cardElement.querySelector('.element__image');
   cardImg.src = cardData.link;
-  cardImg.alt = cardData.alt;
+  cardImg.alt = cardData.alt || cardData.name;
   cardElement.querySelector('.element__title').textContent = cardData.name;
   //Кнопка лайка
   const likeBtn = cardElement.querySelector('.element__like-button');
