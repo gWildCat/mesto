@@ -47,7 +47,7 @@
     </footer>
     <div class="popup popup_light" id="edit-profile">
       <div class="popup__container">
-        <form class="form" name="profile-form" id="profile-form">
+        <form class="form" name="profile-form" id="profile-form" novalidate>
           <h2 class="form__header">Редактировать профиль</h2>
           <input
             id="name"
@@ -56,7 +56,11 @@
             class="form__input"
             placeholder="Имя"
             aria-label="Имя"
+            required
+            minlength="2"
+            maxlength="40"
           />
+          <span class="form__error-message name-error"></span>
           <input
             id="job"
             name="job"
@@ -64,11 +68,12 @@
             class="form__input"
             placeholder="Должность"
             aria-label="Должность"
+            required
+            minlength="2"
+            maxlength="200"
           />
-          <button
-            class="form__save-button"
-            title="Сохранить"
-            type="submit">
+          <span class="form__error-message job-error"></span>
+          <button class="form__save-button" title="Сохранить" type="submit">
             Сохранить
           </button>
         </form>
@@ -82,7 +87,7 @@
     </div>
     <div class="popup popup_light" id="new-card">
       <div class="popup__container">
-        <form class="form" name="new-card-form" id="new-card-form">
+        <form class="form" name="new-card-form" id="new-card-form" novalidate>
           <h2 class="form__header">Новое место</h2>
           <input
             id="title"
@@ -91,19 +96,22 @@
             class="form__input"
             placeholder="Название"
             aria-label="Название"
+            required
+            minlength="2"
+            maxlength="30"
           />
+          <span class="form__error-message title-error"></span>
           <input
             id="link"
             name="link"
-            type="text"
+            type="url"
             class="form__input"
             placeholder="Ссылка на картинку"
             aria-label="Ссылка на картинку"
+            required
           />
-          <button
-            class="form__save-button"
-            title="Создать"
-            type="submit">
+          <span class="form__error-message link-error"></span>
+          <button class="form__save-button" title="Создать" type="submit">
             Создать
           </button>
         </form>
@@ -151,5 +159,6 @@
     </template>
     <script src="./scripts/cards.js"></script>
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>

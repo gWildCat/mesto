@@ -19,24 +19,58 @@ const cardTemplate = document.querySelector('#card-template').content;
 const popupImg = popupViewImg.querySelector('.popup__image');
 const popupImgCaption = popupViewImg.querySelector('.popup__image-caption');
 
+//Закрытие попапов
+
+function closePopup(modalWindow) {
+  document.removeEventListener('keydown', (evt) => handleEsc);
+  modalWindow.removeEventListener('click', handleClosePopup);
+  modalWindow.classList.remove('popup_opened');
+}
+
 //Открытие попапов
 
 function openPopup(modalWindow) {
   modalWindow.classList.add('popup_opened');
+  document.addEventListener('keydown', handleEsc);
+  modalWindow.addEventListener('click', handleClosePopup);
 }
 
-//Закрытие попапов
+// Обработчик закрытия попапа по кнопке Escape
 
-function closePopup(evt) {
-  evt.target.closest('.popup').classList.remove('popup_opened');
+function handleEsc(evt) {
+  if (evt.key === 'Escape') {
+    const activePopup = document.querySelector('.popup_opened');
+    closePopup(activePopup);
+  }
+}
+
+//Обработчик закрытия попапа по клику на крестик или оверлей
+
+function handleClosePopup(evt) {
+  const activePopup = document.querySelector('.popup_opened');
+  if (
+    evt.target.classList.contains('popup__close-button') ||
+    evt.target.classList.contains('popup')
+  ) {
+    closePopup(activePopup);
+  }
 }
 
 //Редактирование профиля
 
 function EditProfile() {
-  openPopup(popupEditProfile);
   inputName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
+  setInitialState(popupEditProfile);
+  openPopup(popupEditProfile);
+}
+
+//Открытие формы с добавлением карточки
+
+function openAddCard() {
+  setInitialState(popupNewCard);
+  addCardForm.reset();
+  openPopup(popupNewCard);
 }
 
 //Обновление данных профиля
@@ -45,7 +79,7 @@ function updateProfile(evt) {
   evt.preventDefault();
   profileName.textContent = inputName.value;
   profileJob.textContent = inputJob.value;
-  closePopup(evt);
+  closePopup(popupEditProfile);
 }
 
 //Добавление новой карточки
@@ -55,7 +89,7 @@ function addCard(evt) {
   const cardData = { name: inputTitle.value, link: inputLink.value };
   renderCard(cardData);
   addCardForm.reset();
-  closePopup(evt);
+  closePopup(popupNewCard);
 }
 
 //Удаление карточки
@@ -116,8 +150,5 @@ initialCards.forEach(function (item) {
 
 editBtn.addEventListener('click', EditProfile);
 profileEditForm.addEventListener('submit', updateProfile);
-addCardBtn.addEventListener('click', () => openPopup(popupNewCard));
-closeBtnList.forEach((btn) => {
-  btn.addEventListener('click', closePopup);
-});
+addCardBtn.addEventListener('click', () => openAddCard());
 addCardForm.addEventListener('submit', addCard);
