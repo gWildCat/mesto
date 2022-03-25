@@ -63,10 +63,10 @@ function setEventListeners(formElement, config) {
 function toggleSubmitBtnState(inputList, buttonElement, config) {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add(config.inactiveButtonClass);
-    buttonElement.disabled = hasInvalidInput(inputList);
+    buttonElement.disabled = true;
   } else {
     buttonElement.classList.remove(config.inactiveButtonClass);
-    buttonElement.disabled = hasInvalidInput(inputList);
+    buttonElement.disabled = false;
   }
 }
 
@@ -86,7 +86,7 @@ enableValidation(config);
 
 //Задание начального состояния валидации при открытии попапа
 
-function setInitialState(modalWindow) {
+function resetValidation(modalWindow) {
   const formElement = modalWindow.querySelector(config.formSelector);
   const inputList = Array.from(
     formElement.querySelectorAll(config.inputSelector)
