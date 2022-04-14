@@ -2,7 +2,7 @@
 
 import { Card } from './Card.js';
 import { initialCards } from './cards.js';
-import { FormValidator } from './validate.js';
+import { FormValidator } from './FormValidator.js';
 
 // Навигация по DOM
 
@@ -121,14 +121,20 @@ function viewImage() {
   openPopup(popupViewImg);
 }
 
-// Отрисовка карточки
+// Создание новой карточки
 
-function renderCard(cardData) {
+function createCard(cardData) {
   // Создание новой карточки
   const newCard = new Card(cardData, viewImage);
   // Генерация html-кода для вставки в страницу
-  const cardElement = newCard.generateCard();
-  //Вставка в страницу
+  return newCard.generateCard();
+}
+
+// Отрисовка карточки
+
+function renderCard(cardData) {
+  const cardElement = createCard(cardData);
+  // Вставка в страницу
   cardsContainer.prepend(cardElement);
 }
 

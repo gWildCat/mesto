@@ -5,14 +5,16 @@ export class FormValidator {
   }
 
   // Показать ошибку
-  _showInputError(inputElement, errorMessage, errorElement) {
+  _showInputError(inputElement, errorMessage) {
+    const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.add(this._config.inputErrorClass);
     errorElement.textContent = errorMessage;
     errorElement.classList.add(this._config.errorClass);
   }
 
   // Спрятать ошибку
-  _hideInputError(inputElement, errorElement) {
+  _hideInputError(inputElement) {
+    const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.remove(this._config.inputErrorClass);
     errorElement.classList.remove(this._config.errorClass);
     errorElement.textContent = '';
@@ -20,11 +22,10 @@ export class FormValidator {
 
   // Проверить валидность
   _checkInputValidity(inputElement) {
-    const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
     if (!inputElement.validity.valid) {
-      this._showInputError(inputElement, inputElement.validationMessage, errorElement);
+      this._showInputError(inputElement, inputElement.validationMessage);
     } else {
-      this._hideInputError(inputElement, errorElement);
+      this._hideInputError(inputElement);
     }
   }
 
@@ -67,8 +68,7 @@ export class FormValidator {
   // Сброс валидации
   resetValidation() {
     this._inputList.forEach((inputElement) => {
-      const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
-      this._hideInputError(inputElement, errorElement);
+      this._hideInputError(inputElement);
     });
     this._toggleSubmitBtnState();
   }
