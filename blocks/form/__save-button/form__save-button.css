@@ -8,22 +8,17 @@
   font-size: 18px;
   font-weight: 400;
   line-height: 21.78px;
-  cursor: pointer;
   transition: opacity 0.2s ease-in;
 }
 
-@media screen and (max-width: 619px) {
-  .form__save-button {
-    width: 238px;
-  }
-}
-
 .form__save-button:hover {
+  cursor: pointer;
   opacity: 0.8;
 }
 
 @media screen and (max-width: 619px) {
   .form__save-button {
+    width: 238px;
     height: 46px;
     font-size: 14px;
     line-height: 16.94px;
