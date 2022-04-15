@@ -1,13 +1,14 @@
 export class Card {
-  constructor(data, viewImage) {
-    this._name = data.name;
-    this._link = data.link;
-    this._alt = data.alt;
+  constructor(cardData, templateSelector, viewImage) {
+    this._name = cardData.name;
+    this._link = cardData.link;
+    this._alt = cardData.alt;
+    this._templateSelector = templateSelector;
     this._viewImage = viewImage;
   }
   // Копирование шаблона
   _getTemplate() {
-    const cardTemplate = document.querySelector('#card-template').content;
+    const cardTemplate = document.querySelector(this._templateSelector).content;
     const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
     return cardElement;
   }

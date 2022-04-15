@@ -108,7 +108,7 @@ function updateProfile(evt) {
 function addCard(evt) {
   evt.preventDefault();
   const cardData = { name: inputTitle.value, link: inputLink.value };
-  renderCard(cardData);
+  renderCard(cardData, '#card-template');
   closePopup(popupNewCard);
 }
 
@@ -123,17 +123,17 @@ function viewImage() {
 
 // Создание новой карточки
 
-function createCard(cardData) {
+function createCard(cardData, templateSelector) {
   // Создание новой карточки
-  const newCard = new Card(cardData, viewImage);
+  const newCard = new Card(cardData, templateSelector, viewImage);
   // Генерация html-кода для вставки в страницу
   return newCard.generateCard();
 }
 
 // Отрисовка карточки
 
-function renderCard(cardData) {
-  const cardElement = createCard(cardData);
+function renderCard(cardData, templateSelector) {
+  const cardElement = createCard(cardData, templateSelector);
   // Вставка в страницу
   cardsContainer.prepend(cardElement);
 }
@@ -141,7 +141,7 @@ function renderCard(cardData) {
 // Отрисовка карточек по-умолчанию
 
 initialCards.forEach(function (item) {
-  renderCard(item);
+  renderCard(item, '#card-template');
 });
 
 // Обработчики событий
