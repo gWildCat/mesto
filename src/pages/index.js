@@ -1,3 +1,7 @@
+// Импортирование стилей
+
+import './index.css';
+
 // Импортирование модулей
 
 import Card from '../components/Card.js';
