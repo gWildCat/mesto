@@ -1,14 +1,14 @@
-export class Card {
-  constructor(cardData, templateSelector, viewImage) {
-    this._name = cardData.name;
+export default class Card {
+  constructor(cardData, cardTemplateSelector, viewImage) {
+    this._title = cardData.title;
     this._link = cardData.link;
     this._alt = cardData.alt;
-    this._templateSelector = templateSelector;
+    this._cardTemplateSelector = cardTemplateSelector;
     this._viewImage = viewImage;
   }
   // Копирование шаблона
   _getTemplate() {
-    const cardTemplate = document.querySelector(this._templateSelector).content;
+    const cardTemplate = document.querySelector(this._cardTemplateSelector).content;
     const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
     return cardElement;
   }
@@ -18,8 +18,8 @@ export class Card {
     this._cardImg = this._element.querySelector('.element__image');
     this._cardTitle = this._element.querySelector('.element__title');
     this._cardImg.src = this._link;
-    this._cardImg.alt = this._alt || this._name;
-    this._cardTitle.textContent = this._name;
+    this._cardImg.alt = this._alt || this._title;
+    this._cardTitle.textContent = this._title;
     this._likeBtn = this._element.querySelector('.element__like-button');
     this._deleteBtn = this._element.querySelector('.element__delete-button');
     this._setEventListeners();
@@ -40,6 +40,8 @@ export class Card {
     // Кнопка удаления карточки
     this._deleteBtn.addEventListener('click', this._deleteCard.bind(this));
     // Просмотр изображения
-    this._cardImg.addEventListener('click', this._viewImage.bind(this));
+    this._cardImg.addEventListener('click', () =>
+      this._viewImage(this._title, this._link, this._alt)
+    );
   }
 }
