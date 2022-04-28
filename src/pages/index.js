@@ -14,10 +14,10 @@ import UserInfo from '../components/UserInfo.js';
 
 // Навигация по DOM
 
-const editBtn = document.querySelector('.profile__edit-button');
-const addCardBtn = document.querySelector('.profile__add-button');
+const btnEdit = document.querySelector('.profile__edit-button');
+const btnAddCard = document.querySelector('.profile__add-button');
 const profileEditForm = document.querySelector('.form#profile-form');
-const addCardForm = document.querySelector('.form#new-card-form');
+const formAddCard = document.querySelector('.form#new-card-form');
 const inputName = profileEditForm.querySelector('input[name="name"]');
 const inputJob = profileEditForm.querySelector('input[name="job"]');
 
@@ -47,9 +47,9 @@ const config = {
 //Включение валидации форм
 
 const profileEditFormValidator = new FormValidator(config, profileEditForm);
-const addCardFormValidator = new FormValidator(config, addCardForm);
+const formAddCardValidator = new FormValidator(config, formAddCard);
 profileEditFormValidator.enableValidation();
-addCardFormValidator.enableValidation();
+formAddCardValidator.enableValidation();
 
 // Обработчик просмотра изображения
 
@@ -62,7 +62,7 @@ function viewImage(name, link, alt) {
 function addCard(cardData) {
   const cardElement = createCard(cardData, selector.cardTemplate);
   cardList.addItem(cardElement);
-  this.close();
+  popupNewCard.close();
 }
 
 // Обработчик обновления данных профиля
@@ -121,11 +121,14 @@ function openEditProfile() {
 // Коллбэк нажатия на кнопку добавления новой карточки
 
 function openAddCard() {
-  addCardFormValidator.resetValidation();
+  formAddCardValidator.resetValidation();
   popupNewCard.open();
 }
 
 // Установка слушателей событий
 
-editBtn.addEventListener('click', openEditProfile);
-addCardBtn.addEventListener('click', openAddCard);
+btnEdit.addEventListener('click', openEditProfile);
+btnAddCard.addEventListener('click', openAddCard);
+popupViewImg.setEventListeners();
+popupEditProfile.setEventListeners();
+popupNewCard.setEventListeners();

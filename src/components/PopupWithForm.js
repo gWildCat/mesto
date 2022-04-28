@@ -6,11 +6,12 @@ export default class PopupWithForm extends Popup {
     this._handleSubmit = handleSubmit;
     this._submitHandler = this._submitHandler.bind(this);
     this._form = this._modalWindow.querySelector('.form');
+    this._formInputList = Array.from(this._form.querySelectorAll('.form__input'));
   }
   // Получение значений полей ввода
   _getInputValues() {
     const data = {};
-    Array.from(this._form.querySelectorAll('.form__input')).forEach(
+    this._formInputList.forEach(
       (input) => (data[input.name] = input.value)
     );
     return data;
@@ -29,6 +30,5 @@ export default class PopupWithForm extends Popup {
   close() {
     super.close();
     this._form.reset();
-    this._form.removeEventListener('submit', this._submitHandler);
   }
 }

@@ -1,19 +1,18 @@
 export default class Popup {
   constructor(popupSelector) {
-    this._popupSelector = popupSelector;
-    this._modalWindow = document.querySelector(this._popupSelector);
+    this._modalWindow = document.querySelector(popupSelector);
     this._handleClosePopup = this._handleClosePopup.bind(this);
     this._handleEscClose = this._handleEscClose.bind(this);
   }
   // Открытие попапа
   open() {
     this._modalWindow.classList.add('popup_opened');
-    this.setEventListeners();
+    document.addEventListener('keydown', this._handleEscClose);
   }
   // Закрытие попапа
   close() {
     this._modalWindow.classList.remove('popup_opened');
-    this._removeEventListeners();
+    document.removeEventListener('keydown', this._handleEscClose);
   }
   // Коллбэк слушателя закрытия попапа по клику
   _handleClosePopup(evt) {
@@ -33,11 +32,9 @@ export default class Popup {
   // Установка слушателей событий
   setEventListeners() {
     this._modalWindow.addEventListener('click', this._handleClosePopup);
-    document.addEventListener('keydown', this._handleEscClose);
   }
   // Удаление слушателей событий
   _removeEventListeners() {
     this._modalWindow.removeEventListener('click', this._handleClosePopup);
-    document.removeEventListener('keydown', this._handleEscClose);
   }
 }
