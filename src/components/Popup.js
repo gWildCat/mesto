@@ -33,8 +33,4 @@ export default class Popup {
   setEventListeners() {
     this._modalWindow.addEventListener('click', this._handleClosePopup);
   }
-  // Удаление слушателей событий
-  _removeEventListeners() {
-    this._modalWindow.removeEventListener('click', this._handleClosePopup);
-  }
 }
