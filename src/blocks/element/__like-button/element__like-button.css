@@ -6,6 +6,7 @@
   height: 19px;
   cursor: pointer;
   transition: opacity 0.2s ease-in;
+  margin-bottom: 3px;
 }
 
 .element__like-button:hover {

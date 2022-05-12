@@ -1,4 +1,5 @@
 .element__delete-button {
+  display: none;
   appearance: none;
   border: none;
   background: center no-repeat url(../../../images/elements-delete-btn.svg);

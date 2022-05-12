@@ -1,6 +1,8 @@
 export default class Popup {
   constructor(popupSelector) {
     this._modalWindow = document.querySelector(popupSelector);
+    this._btnSubmit = this._modalWindow.querySelector('.form__save-button');
+    if (this._btnSubmit) this._btnSubmitDefaultInnerText = this._btnSubmit.innerText;
     this._handleClosePopup = this._handleClosePopup.bind(this);
     this._handleEscClose = this._handleEscClose.bind(this);
   }
@@ -32,5 +34,11 @@ export default class Popup {
   // Установка слушателей событий
   setEventListeners() {
     this._modalWindow.addEventListener('click', this._handleClosePopup);
+  }
+  // Спиннер во время выполнения запроса к серверу
+  renderLoading(isLoading) {
+    isLoading
+      ? (this._btnSubmit.innerText = 'Сохранение...')
+      : (this._btnSubmit.innerText = this._btnSubmitDefaultInnerText);
   }
 }

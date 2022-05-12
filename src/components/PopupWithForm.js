@@ -11,13 +11,12 @@ export default class PopupWithForm extends Popup {
   // Получение значений полей ввода
   _getInputValues() {
     const data = {};
-    this._formInputList.forEach(
-      (input) => (data[input.name] = input.value)
-    );
+    this._formInputList.forEach((input) => (data[input.name] = input.value));
     return data;
   }
   // Коллбэк слушателя действия Submit
   _submitHandler(evt) {
+    this.renderLoading(true);
     evt.preventDefault();
     this._handleSubmit(this._getInputValues());
   }
