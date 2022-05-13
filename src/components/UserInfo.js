@@ -7,19 +7,14 @@ export default class UserInfo {
   // Получить информацию о пользователе
   getUserInfo() {
     return {
-      userName: this._userName.textContent,
-      userAbout: this._userAbout.textContent,
-      userId: this._userId,
+      name: this._userName.textContent,
+      about: this._userAbout.textContent,
     };
   }
   // Изменить информацию о пользователе на странице
-  setUserInfo({ name, about, _id }) {
+  setUserInfo({ name, about, avatar }) {
     this._userName.textContent = name;
     this._userAbout.textContent = about;
-    this._userId = _id;
-  }
-  // Установить аватар пользователя на странице
-  setUserAvatar({ avatar }) {
     this._userAvatar.src = avatar;
   }
 }

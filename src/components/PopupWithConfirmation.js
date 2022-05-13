@@ -6,9 +6,8 @@ class PopupWithConfirmation extends Popup {
     this._handleConfirm = handleConfirm;
   }
   // Открытие попапа
-  open(cardId, card) {
+  open(card) {
     super.open();
-    this._cardId = cardId;
     this._card = card;
   }
   // Установка слушателей событий
@@ -16,7 +15,7 @@ class PopupWithConfirmation extends Popup {
     super.setEventListeners();
     this._btnSubmit.addEventListener('click', () => {
       this.renderLoading(true);
-      this._handleConfirm(this._cardId, this._card);
+      this._handleConfirm(this._card);
     });
   }
 }

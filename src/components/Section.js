@@ -4,11 +4,12 @@ export default class Section {
     this._renderer = renderer;
   }
   // Вставить элемент в разметку
-  addItem(cardElement, newCard) {
-    newCard ? this._container.prepend(cardElement) : this._container.append(cardElement);
+  addItem(cardElement) {
+    const card = this._renderer(cardElement);
+    this._container.prepend(card);
   }
   // Отрисовать карточки по-умолчанию при загрузке страницы
   renderItems(initialCards) {
-    initialCards.forEach((item) => this._renderer(item));
+    initialCards.reverse().forEach((item) => this.addItem(item));
   }
 }

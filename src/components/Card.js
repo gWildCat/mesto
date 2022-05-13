@@ -4,9 +4,9 @@ export default class Card {
     cardTemplateSelector,
     currentUserId,
     viewImage,
-    addLike,
-    removeLike,
-    openConfirmDelete
+    handleLike,
+    openConfirmDelete,
+    handleError
   ) {
     this._name = cardData.name;
     this._link = cardData.link;
@@ -16,9 +16,9 @@ export default class Card {
     this._cardTemplateSelector = cardTemplateSelector;
     this._currentUserId = currentUserId;
     this._viewImage = viewImage;
-    this._addLike = addLike;
-    this._removeLike = removeLike;
+    this.handleLike = handleLike;
     this._openConfirmDelete = openConfirmDelete;
+    this._handleError = handleError;
   }
   // Копирование шаблона
   _getTemplate() {
@@ -40,18 +40,18 @@ export default class Card {
     this._likesCounter.textContent = this._likes.length;
     if (this._checkIsOwn()) this._deleteBtn.classList.add('element__delete-button_active');
     if (this._checkIsLiked()) {
-      this._addLikedSymbol();
+      this.addLikedSymbol();
       this._likedState = true;
     }
     this._setEventListeners();
     return this._element;
   }
   // Добавление символа лайка карточке
-  _addLikedSymbol() {
+  addLikedSymbol() {
     this._likeBtn.classList.add('element__like-button_active');
   }
   // Удаление символа лайка карточке
-  _removeLikedSymbol() {
+  removeLikedSymbol() {
     this._likeBtn.classList.remove('element__like-button_active');
   }
   // Проверка, создана ли карточка текущим пользователем
@@ -62,32 +62,12 @@ export default class Card {
   _checkIsLiked() {
     return this._likes.some((user) => user._id === this._currentUserId);
   }
-  // Обработчик кнопки лайка
-  _handleLike() {
-    if (this._likedState) {
-      this._removeLike(this._id).then(
-        (cardData) => (this._likesCounter.textContent = cardData.likes.length)
-      );
-      this._removeLikedSymbol();
-      this._likedState = false;
-    } else {
-      this._addLike(this._id).then(
-        (cardData) => (this._likesCounter.textContent = cardData.likes.length)
-      );
-      this._addLikedSymbol();
-      this._likedState = true;
-    }
-  }
-  // Удаление карточки из разметки
-  deleteCard() {
-    this._element.remove();
-  }
   // Установка слушателей
   _setEventListeners() {
     // Кнопка лайка
-    this._likeBtn.addEventListener('click', this._handleLike.bind(this));
+    this._likeBtn.addEventListener('click', () => this.handleLike(this));
     // Кнопка удаления карточки
-    this._deleteBtn.addEventListener('click', () => this._openConfirmDelete(this._id, this));
+    this._deleteBtn.addEventListener('click', () => this._openConfirmDelete(this));
     // Просмотр изображения
     this._cardImg.addEventListener('click', () => this._viewImage(this._name, this._link));
   }

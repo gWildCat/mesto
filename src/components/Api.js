@@ -5,9 +5,7 @@ class Api {
   }
   // Обработчик ответа с сервера
   _handleResponse(res) {
-    return (res.ok ? res.json() : Promise.reject(res.status)).catch((err) =>
-      console.error(`🔥ERROR: ${err}`)
-    );
+    return res.ok ? res.json() : Promise.reject(res.status);
   }
   // Запрос карточек с сервера
   _getInitialCards() {
