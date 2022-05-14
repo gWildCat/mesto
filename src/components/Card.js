@@ -10,13 +10,13 @@ export default class Card {
   ) {
     this._name = cardData.name;
     this._link = cardData.link;
-    this._id = cardData._id;
+    this.id = cardData._id;
     this._ownerId = cardData.owner._id;
     this._likes = cardData.likes;
     this._cardTemplateSelector = cardTemplateSelector;
     this._currentUserId = currentUserId;
     this._viewImage = viewImage;
-    this.handleLike = handleLike;
+    this._handleLike = handleLike;
     this._openConfirmDelete = openConfirmDelete;
     this._handleError = handleError;
   }
@@ -40,18 +40,30 @@ export default class Card {
     this._likesCounter.textContent = this._likes.length;
     if (this._checkIsOwn()) this._deleteBtn.classList.add('element__delete-button_active');
     if (this._checkIsLiked()) {
-      this.addLikedSymbol();
-      this._likedState = true;
+      this._addLikedSymbol();
+      this.likedState = true;
     }
     this._setEventListeners();
     return this._element;
   }
+  // Удаление лайка карточки
+  removeLike(updatedCardData) {
+    this._likesCounter.textContent = updatedCardData.likes.length;
+    this._removeLikedSymbol();
+    this.likedState = false;
+  }
+  // Добавление лайка карточке
+  addLike(updatedCardData) {
+    this._likesCounter.textContent = updatedCardData.likes.length;
+    this._addLikedSymbol();
+    this.likedState = true;
+  }
   // Добавление символа лайка карточке
-  addLikedSymbol() {
+  _addLikedSymbol() {
     this._likeBtn.classList.add('element__like-button_active');
   }
   // Удаление символа лайка карточке
-  removeLikedSymbol() {
+  _removeLikedSymbol() {
     this._likeBtn.classList.remove('element__like-button_active');
   }
   // Проверка, создана ли карточка текущим пользователем
@@ -62,10 +74,14 @@ export default class Card {
   _checkIsLiked() {
     return this._likes.some((user) => user._id === this._currentUserId);
   }
+  // Удаление карточки из разметки
+  removeItem() {
+    this._element.remove();
+  }
   // Установка слушателей
   _setEventListeners() {
     // Кнопка лайка
-    this._likeBtn.addEventListener('click', () => this.handleLike(this));
+    this._likeBtn.addEventListener('click', () => this._handleLike(this));
     // Кнопка удаления карточки
     this._deleteBtn.addEventListener('click', () => this._openConfirmDelete(this));
     // Просмотр изображения

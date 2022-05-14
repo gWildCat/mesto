@@ -127,10 +127,10 @@ function changeAvatar(avatarData) {
 
 function deleteCard(card) {
   api
-    .deleteCard(card._id)
+    .deleteCard(card.id)
     .then(() => {
       popupConfirmDelete.close();
-      card._element.remove();
+      card.removeItem();
     })
     .finally(() => popupConfirmDelete.renderLoading(false))
     .catch((error) => handleError(error));
@@ -139,22 +139,18 @@ function deleteCard(card) {
 // Обработчик добавления / удаления лайка
 
 function handleLike(card) {
-  if (card._likedState) {
+  if (card.likedState) {
     api
-      .removeLike(card._id)
-      .then((cardData) => {
-        card._likesCounter.textContent = cardData.likes.length;
-        card.removeLikedSymbol();
-        card._likedState = false;
+      .removeLike(card.id)
+      .then((updatedCardData) => {
+        card.removeLike(updatedCardData);
       })
       .catch((error) => handleError(error));
   } else {
     api
-      .addLike(card._id)
-      .then((cardData) => {
-        card._likesCounter.textContent = cardData.likes.length;
-        card.addLikedSymbol();
-        card._likedState = true;
+      .addLike(card.id)
+      .then((updatedCardData) => {
+        card.addLike(updatedCardData);
       })
       .catch((error) => handleError(error));
   }
