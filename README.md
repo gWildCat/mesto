@@ -27,5 +27,4 @@
 
 ## Ссылка на репозиторий проекта на GitHub:
 
-- [Ссылка на репозиторий](https://github.com/gWildCat/mesto)
-- [Ссылка на проект на GitHub Pages](https://gwildcat.github.io/mesto/index.html)
+- [Ссылка на репозиторий](https://github.com/malkov-am/mesto)
